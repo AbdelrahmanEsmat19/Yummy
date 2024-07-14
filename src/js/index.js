@@ -482,12 +482,6 @@ const inputs = form.querySelectorAll('input');
 const alerts = form.querySelectorAll('.alert');
 const submitButton = form.querySelector('#submitButton');
 
-
-const form = document.querySelector('form');
-const inputs = form.querySelectorAll('input');
-const alerts = form.querySelectorAll('.alert');
-const submitButton = form.querySelector('#submitButton');
-
 inputs.forEach((input) => {
   input.addEventListener('input', (e) => {
     const inputValue = e.target.value;
