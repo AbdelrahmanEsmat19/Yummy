@@ -164,17 +164,18 @@ async function getCategories() {
     let cartona = "";
     categories.forEach(category => {
       cartona += `
-        <div class="item col-md-4 col-lg-3">
+        <div class="item col-md-3 col-lg-3  ">
           <div data-category="${category.strCategory}" role="button" class="meal-Category overflow-hidden rounded-3 position-relative" >
             <img src="${category.strCategoryThumb}" class="w-100" alt="${category.strCategory}" />
-            <div class="overlay d-flex flex-column p-2 text-center text-black">
+            <div class="overlay d-flex flex-column align-items-center justify-content-center p-2 text-center text-black">
               <h3 class="fs-4">${category.strCategory}</h3>
-              <p class="overflow-hidden">${category.strCategoryDescription.substring(0, 110)}</p>
+              <p class="overflow-hidden ">${category.strCategoryDescription.substring(0, 90)}</p>
             </div>
           </div>
         </div>
       `;
     });
+
 
     document.getElementById('Categories').innerHTML = cartona;
 
