@@ -572,12 +572,7 @@ inputs.forEach((input) => {
           isValid = false;
         }
         break;
-        case 'numberInput':
-          const numberRegex = /^\d+$/;
-          if (!numberRegex.test(inputValue)) {
-            isValid = false;
-          }
-          break;
+    
         case 'passwordInput':
           const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
           if (!passwordRegex.test(inputValue)) {
