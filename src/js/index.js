@@ -508,7 +508,7 @@ inputs.forEach((input) => {
         }
         break;
       case 'numberInput':
-        const numberRegex = /^\d+$/;
+        const numberRegex = /^(?:1[8-9]|[2-9][0-9]|100)$/;
         if (!numberRegex.test(inputValue)) {
           isValid = false;
         }
@@ -547,7 +547,103 @@ inputs.forEach((input) => {
       let isValid = true;
 
       switch (inputId) {
-          
+        case 'nameInput':
+          const nameRegex = /^[A-Z][a-z]+$/;
+          if (!nameRegex.test(inputValue)) {
+            isValid = false;
+          }
+          break;
+        case 'emailInput':
+          const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (!emailRegex.test(inputValue)) {
+            isValid = false;
+          }
+          break;
+        case 'telInput':
+          const telRegex = /^\d{11}$/;
+          if (!telRegex.test(inputValue)) {
+            isValid = false;
+          }
+          break;
+          case 'numberInput':
+        const numberRegex = /^(?:1[8-9]|[2-9][0-9]|100)$/;
+        if (!numberRegex.test(inputValue)) {
+          isValid = false;
+        }
+        break;
+    
+        case 'passwordInput':
+          const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
+          if (!passwordRegex.test(inputValue)) {
+            isValid = false;
+          }
+          break;
+        case 'Re-passwordInput':
+          const rePasswordInputinputs.forEach((input) => {
+  input.addEventListener('input', (e) => {
+    const inputValue = e.target.value;
+    const inputId = e.target.id;
+    let isValid = true;
+
+    switch (inputId) {
+      case 'nameInput':
+        const nameRegex = /^[A-Z][a-z]+$/;
+        if (!nameRegex.test(inputValue)) {
+          isValid = false;
+        }
+        break;
+      case 'emailInput':
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(inputValue)) {
+          isValid = false;
+        }
+        break;
+      case 'telInput':
+        const telRegex = /^\d{11}$/;
+        if (!telRegex.test(inputValue)) {
+          isValid = false;
+        }
+        break;
+      case 'numberInput':
+        const numberRegex = /^(?:1[8-9]|[2-9][0-9]|100)$/;
+        if (!numberRegex.test(inputValue)) {
+          isValid = false;
+        }
+        break;
+      case 'passwordInput':
+        const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
+        if (!passwordRegex.test(inputValue)) {
+          isValid = false;
+        }
+        break;
+      case 'Re-passwordInput':
+        const rePasswordInput = document.querySelector('#passwordInput').value;
+        if (inputValue !== rePasswordInput) {
+          isValid = false;
+        }
+        break;
+      default:
+        break;
+    }
+
+    if (!isValid) {
+      const alert = form.querySelector(`#${inputId}Alert`);
+      alert.classList.remove('d-none');
+      input.classList.remove('is-valid');
+
+    } else {
+      const alert = form.querySelector(`#${inputId}Alert`);
+      alert.classList.add('d-none');
+      input.classList.add('is-valid');
+    }
+
+    let allValid = true;
+    Array.from(inputs).every((input) => {
+      const inputValue = input.value;
+      const inputId = input.id;
+      let isValid = true;
+
+      switch (inputId) {
         case 'nameInput':
           const nameRegex = /^[A-Z][a-z]+$/;
           if (!nameRegex.test(inputValue)) {
