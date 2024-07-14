@@ -547,6 +547,7 @@ inputs.forEach((input) => {
       let isValid = true;
 
       switch (inputId) {
+          
         case 'nameInput':
           const nameRegex = /^[A-Z][a-z]+$/;
           if (!nameRegex.test(inputValue)) {
@@ -565,6 +566,12 @@ inputs.forEach((input) => {
             isValid = false;
           }
           break;
+          case 'numberInput':
+        const numberRegex = /^(?:1[8-9]|[2-9][0-9]|100)$/;
+        if (!numberRegex.test(inputValue)) {
+          isValid = false;
+        }
+        break;
         case 'numberInput':
           const numberRegex = /^\d+$/;
           if (!numberRegex.test(inputValue)) {
