@@ -520,8 +520,8 @@ inputs.forEach((input) => {
         }
         break;
       case 'Re-passwordInput':
-        const rePasswordInput = document.querySelector('#passwordInput').value;
-        if (inputValue !== rePasswordInput) {
+        const rePasswordInputValue = document.querySelector('#passwordInput').value;
+        if (inputValue !== rePasswordInputValue) {
           isValid = false;
         }
         break;
@@ -565,13 +565,12 @@ inputs.forEach((input) => {
             isValid = false;
           }
           break;
-          case 'numberInput':
-        const numberRegex = /^(?:1[8-9]|[2-9][0-9]|100)$/;
-        if (!numberRegex.test(inputValue)) {
-          isValid = false;
-        }
-        break;
-    
+        case 'numberInput':
+          const numberRegex = /^(?:1[8-9]|[2-9][0-9]|100)$/;
+          if (!numberRegex.test(inputValue)) {
+            isValid = false;
+          }
+          break;
         case 'passwordInput':
           const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
           if (!passwordRegex.test(inputValue)) {
@@ -579,7 +578,29 @@ inputs.forEach((input) => {
           }
           break;
         case 'Re-passwordInput':
-          const rePasswordInputinputs.forEach((input) => {
+          const rePasswordInputValue = document.querySelector('#passwordInput').value;
+          if (inputValue !== rePasswordInputValue) {
+            isValid = false;
+          }
+          break;
+        default:
+          break;
+      }
+
+      if (!isValid) {
+        allValid = false;
+      }
+
+      return isValid;
+    });
+
+    if (allValid) {
+      submitButton.disabled = false;
+    } else {
+      submitButton.disabled = true;
+    }
+  });
+});inputs.forEach((input) => {
   input.addEventListener('input', (e) => {
     const inputValue = e.target.value;
     const inputId = e.target.id;
@@ -617,8 +638,8 @@ inputs.forEach((input) => {
         }
         break;
       case 'Re-passwordInput':
-        const rePasswordInput = document.querySelector('#passwordInput').value;
-        if (inputValue !== rePasswordInput) {
+        const rePasswordInputValue = document.querySelector('#passwordInput').value;
+        if (inputValue !== rePasswordInputValue) {
           isValid = false;
         }
         break;
@@ -662,13 +683,12 @@ inputs.forEach((input) => {
             isValid = false;
           }
           break;
-          case 'numberInput':
-        const numberRegex = /^(?:1[8-9]|[2-9][0-9]|100)$/;
-        if (!numberRegex.test(inputValue)) {
-          isValid = false;
-        }
-        break;
-    
+        case 'numberInput':
+          const numberRegex = /^(?:1[8-9]|[2-9][0-9]|100)$/;
+          if (!numberRegex.test(inputValue)) {
+            isValid = false;
+          }
+          break;
         case 'passwordInput':
           const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
           if (!passwordRegex.test(inputValue)) {
@@ -676,8 +696,8 @@ inputs.forEach((input) => {
           }
           break;
         case 'Re-passwordInput':
-          const rePasswordInput = document.querySelector('#passwordInput').value;
-          if (inputValue !== rePasswordInput) {
+          const rePasswordInputValue = document.querySelector('#passwordInput').value;
+          if (inputValue !== rePasswordInputValue) {
             isValid = false;
           }
           break;
