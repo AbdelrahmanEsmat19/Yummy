@@ -507,9 +507,9 @@ inputs.forEach((input) => {
           isValid = false;
         }
         break;
-      case 'numberInput':
-        const numberRegex = /^\d+$/;
-        if (!numberRegex.test(inputValue)) {
+      case 'ageInput':
+  const ageRegex = /^(?:19|[2-9][0-9]|[1-9][0-9]{2})$/;
+        if (!ageRegex.test(inputValue)) {
           isValid = false;
         }
         break;
@@ -565,9 +565,9 @@ inputs.forEach((input) => {
             isValid = false;
           }
           break;
-        case 'numberInput':
-          const numberRegex = /^\d+$/;
-          if (!numberRegex.test(inputValue)) {
+        case 'ageInput':
+    const ageRegex = /^(?:19|[2-9][0-9]|[1-9][0-9]{2})$/;
+          if (!ageRegex.test(inputValue)) {
             isValid = false;
           }
           break;
