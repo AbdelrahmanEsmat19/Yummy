@@ -12,7 +12,9 @@ const sidebarLinks = $('.nav-item a');
 sidebarLinks.on('click', function () {
   const sectionToShow = $($(this).attr('href'));
   $('section').addClass('d-none');
+  showLoader();
   sectionToShow.removeClass('d-none');
+  hideLoader();
   $('.navbar-hide').hide(500)
   $('.icon-x').hide(0)
   $('.icon').show(0)
@@ -203,6 +205,7 @@ async function getCategories() {
 getCategories()
 
 async function getCategoriesInfo(category) {
+  showLoader();
   const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
   try {
     const response = await fetch(apiUrl);
@@ -243,6 +246,7 @@ async function getCategoriesInfo(category) {
     console.error(error);
     return 'Error: ' + error.message;
   }
+  
 }
 
 async function getAreaList() {
@@ -382,6 +386,7 @@ async function getMealsByIngredient(ingredients) {
 }
 
 function displayMeals(meals) {
+  showLoader();
   let mealHtml = '';
   meals.forEach(meal => {
     mealHtml += `
@@ -439,6 +444,7 @@ async function searchMealLetter(meal) {
 }
 
 function renderMealList(meals) {
+  showLoader();
   if (!meals) {
     document.getElementById('rowData2').innerHTML = `<span class="text-danger fw-bold">No meals found.</span>`;
     return;
@@ -471,13 +477,17 @@ function renderMealList(meals) {
       }
     });
   });
+  hideLoader();
 }
 function renderMealDetails(mealDetails) {
+  showLoader();
   displayMealDetails(mealDetails);
   const searchSection = document.getElementById('Search');
   searchSection.classList.add('d-none');
   document.getElementById('rowData2').classList.add('d-none');
+  hideLoader();
 }
+
 const form = document.querySelector('form');
 const inputs = form.querySelectorAll('input');
 const alerts = form.querySelectorAll('.alert');
