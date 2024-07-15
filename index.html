@@ -3,95 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- title -->
     <title>Yummy</title>
-    <link rel="icon" href="src/images/logo.png">
-    <link rel="stylesheet" href="src/css/all.min.css" />
-    <link rel="stylesheet" href="src/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="src/css/input.css" />
-    <link rel="icon" href="src/images/logo.png">
+    <!-- icon -->
+    <link rel="icon" href="src/images/logo.png" />
+    <!-- CSS Files-->
     <link rel="stylesheet" href="src/css/all.min.css" />
     <link rel="stylesheet" href="src/css/bootstrap.min.css" />
     <link rel="stylesheet" href="src/css/input.css" />
   </head>
   <body class="bg-black">
-    <section
-      id="loader"
-      class="vh-100 z-2 justify-content-center align-items-center position-fixed top-0 bottom-0 start-0 end-0 bg-black"
-    >
-      <span class="loader"></span>
-    </section>
+    <!-- Nav -->
+    <nav class="d-flex z-1 align-items-center position-fixed">
+      <div class="bg-black text-white navbar-hide col-5 col-md-6 col-lg-7">
+        <ul
+          class="navbar-nav top-0 mt-5 d-flex align-items-start p-3 text-white"
+        >
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#Search">Search</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Categories">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Area">Area</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Ingredients">Ingredients</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#ContactUs">Contact Us</a>
+          </li>
+        </ul>
+        <div class="col-12 p-3 mt-5">
+          <i role="button" class="fa-brands fa-facebook pb-3"></i>
+          <i role="button" class="fa-brands fa-twitter pb-3"></i>
+          <i role="button" class="fa-solid fa-globe pb-3"></i>
+          <p>Copyright AbdelrahmanEsmat© 2024 All Rights Reserved.</p>
+        </div>
+      </div>
+      <div
+        class="bg-white nav-tab d-flex flex-column align-items-center justify-content-between py-5"
+      >
+        <div><img src="./src/images/logo.png" class="" alt="" /></div>
+        <div>
+          <i class="fa-solid fa-bars icon fa-2x p-2" role="button"></i>
+          <i class="fa-solid fa-xmark icon-x fa-2x p-2" role="button"></i>
+        </div>
+        <div class="d-flex flex-column">
+          <i role="button" class="fa-solid fa-globe pb-3"></i>
+          <i role="button" class="fa-solid fa-share-nodes"></i>
+        </div>
+      </div>
+    </nav>
+    <!-- End Nav -->
+    <!-- main -->
     <main class="vh-100">
-      <nav class="d-flex z-1 align-items-center position-fixed">
-        <div
-          class="bg-black  text-white navbar-hide col-5 col-md-6 col-lg-7"
-        >
-          <ul class="navbar-nav top-0  mt-5 d-flex align-items-start p-3 text-white">
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                aria-current="page"
-                href="#Search"
-                >Search</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href="#Categories"
-                >Categories</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href="#Area"
-                >Area</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href="#Ingredients"
-                >Ingredients</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href="#ContactUs"
-                >Contact Us</a
-              >
-            </li>
-          </ul>
-          <div class="col-12 p-3 mt-5 ">
-            <i role="button" class="fa-brands fa-facebook pb-3 "></i>
-            <i role="button" class="fa-brands fa-twitter pb-3"></i>
-            <i role="button" class="fa-solid fa-globe pb-3"></i>
-            <p>Copyright AbdelrahmanEsmat© 2024 All Rights Reserved.</p>
-          </div>
-        </div>
-        <div
-          class="bg-white  nav-tab d-flex flex-column align-items-center justify-content-between py-5"
-        >
-          <div><img src="./src/images/logo.png" class="" alt="" /></div>
-          <div>
-            <i class="fa-solid fa-bars icon fa-2x p-2" role="button"></i>
-            <i class="fa-solid fa-xmark icon-x fa-2x p-2" role="button"></i>
-          </div>
-          <div class="d-flex flex-column ">
-            <i role="button" class="fa-solid fa-globe pb-3"></i>
-            <i role="button" class="fa-solid fa-share-nodes"></i>
-                    </div>
-        </div>
-      </nav>
-      <section id="rowData" class="row container mx-auto g-4 ps-5 py-5 "></section>
+      <!-- loader -->
+      <section
+        id="loader"
+        class="vh-100 z-2 justify-content-center align-items-center position-fixed top-0 bottom-0 start-0 end-0 bg-black"
+      >
+        <span class="loader"></span>
+      </section>
+      <!-- End loader -->
+
+      <!-- Home -->
+      <section
+        id="rowData"
+        class="row container mx-auto g-4 ps-5 py-5"
+      ></section>
+      <!-- End Home -->
+
+      <!--  Search -->
       <section id="Search" class="ps-5 py-5 d-none">
-        <div class="row py-5 mx-auto g-3 justify-content-between container ">
+        <div class="row py-5 mx-auto g-3 justify-content-between container">
           <div class="col-6 pe-4">
             <input
               type="search"
               id="searchName"
-              class="form-control bg-transparent "
+              class="form-control bg-transparent"
               placeholder="Search By Name"
               aria-label="Search By Name"
             />
@@ -100,7 +91,7 @@
             <input
               type="search"
               id="searchLetter"
-              class="form-control bg-transparent "
+              class="form-control bg-transparent"
               placeholder="Search By First Letter"
               aria-label="Search By First Letter"
             />
@@ -108,18 +99,29 @@
         </div>
         <div id="rowData2" class="row container mx-auto g-4 py-5"></div>
       </section>
+      <!-- End Search -->
+
+      <!--  Categories -->
       <section
         id="Categories"
         class="row container g-4 mx-auto ps-5 py-5 d-none"
       ></section>
+      <!-- End Categories -->
+
+      <!--  CategoriesInfo -->
       <section
         id="CategoriesInfo"
-        class="row container g-4 mx-auto p-5 ms-4  d-none"
+        class="row container g-4 mx-auto ps-5 py-5 d-none"
       ></section>
+      <!-- End CategoriesInfo -->
+
+      <!--  getDetails -->
       <section id="getDetails" class="d-none">
         <div class="container py-5">
-          <div class="row text-white p-5 ms-3 text-md-start text-center text-lg-start">
-            <div class="col-12 col-lg-4 ">
+          <div
+            class="row text-white p-5 ms-3 text-md-start text-center text-lg-start"
+          >
+            <div class="col-12 col-lg-4">
               <div>
                 <img src="" id="strSource" class="w-100 rounded-3" alt="" />
                 <p class="fs-2 fw-medium text-center" id="strMeal"></p>
@@ -161,29 +163,40 @@
           </div>
         </div>
       </section>
+      <!-- End getDetails -->
 
+      <!-- Area  -->
       <section
         id="Area"
         class="row container mx-auto g-4 py-5 d-none"
       ></section>
+      <!-- End Area -->
+
+      <!--  AreaMeals -->
       <section
         id="AreaMeals"
         class="row container mx-auto g-4 ps-5 py-5 d-none"
       ></section>
+      <!-- End AreaMeals -->
+
+      <!--  Ingredients -->
       <section
         id="Ingredients"
         class="row container g-4 mx-auto ps-5 py-5 d-none"
       ></section>
+      <!-- End Ingredients -->
+
+      <!--  IngredientsMeal -->
       <section
         id="IngredientsMeal"
         class="row container g-4 mx-auto ps-5 py-5 d-none"
       ></section>
+      <!-- End IngredientsMeal -->
 
+      <!--  ContactUs -->
       <section id="ContactUs" class="container d-none">
         <form>
-          <div
-            class="d-flex align-items-center vh-100 justify-content-center "
-          >
+          <div class="d-flex align-items-center vh-100 justify-content-center">
             <div class="container w-75 text-center">
               <div class="row g-4">
                 <div class="col-12 col-lg-6 col-md-6">
@@ -292,7 +305,9 @@
           </div>
         </form>
       </section>
+      <!-- End ContactUs -->
     </main>
+    <!--End Main -->
 
     <script src="src/js/jquery.min.js"></script>
     <script src="src/js/index.js"></script>
