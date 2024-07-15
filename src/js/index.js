@@ -44,16 +44,20 @@ $('.icon-x').on('click', function() {
 });
 
 $('#searchName').on('input', function () {
+  showLoader();
   searchMeal($('#searchName').val());
+  hideLoader(); 
 });
 
 $('#searchLetter').on('input', function () {
+  showLoader(); 
   const inputValue = $('#searchLetter').val();
   if (inputValue.length === 1) {
     searchMealLetter(inputValue);
   } else {
     $('#searchLetter').val(inputValue.substring(0, 1));
   }
+  hideLoader();
 });
 
 const hideBtn = document.getElementById('hideBtn');
@@ -75,6 +79,7 @@ searchInputLetter.addEventListener('input', function () {
 });
 function displayMealDetails(mealDetails) {
   if (mealDetails) {
+    showLoader(); 
     const getDetailsSection = document.getElementById('getDetails');
     getDetailsSection.classList.remove('d-none');
 
@@ -99,11 +104,13 @@ $('.icon').show(0);
     document.getElementById('youtubeBtn').href = mealDetails.strYoutube;
 
     document.getElementById('rowData').classList.add('d-none');
+    
+    hideLoader(); 
+
   } else {
     console.error('Failed to retrieve meal details');
   }
 }
-
 
 async function getMealDetails(mealId) {
   try {
@@ -230,13 +237,14 @@ async function getCategoriesInfo(category) {
     categoriesInfoElement.addEventListener('click', async event => {
       if (event.target.closest('[data-id]')) {
         const mealId = event.target.closest('[data-id]').getAttribute('data-id');
-        showLoader();
         const api = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`);
         const mealResponse = await api.json();
+        showLoader();
         const mealDetails = mealResponse.meals[0];
+        
         displayMealDetails(mealDetails);
         categoriesInfoElement.classList.add('d-none');
-        hideLoader();
+   
       }
     });
 
@@ -244,9 +252,9 @@ async function getCategoriesInfo(category) {
 
   } catch (error) {
     console.error(error);
-    return 'Error: ' + error.message;
+  } finally {
+    hideLoader(); 
   }
-  
 }
 
 async function getAreaList() {
